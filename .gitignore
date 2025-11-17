@@ -1,0 +1,5 @@
+# DEPENDENCIAS
+node_modules/
+
+# ENTORNO
+.env
