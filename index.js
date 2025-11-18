@@ -9,13 +9,17 @@ console.clear()
 // const conectarServidor = server.listen(3500, () => {
 //     console.log(`Servidor http listo y escuchando en el puerto ${conectarServidor.address().port}`)
 // })
-const dotenv = require('dotenv')
-dotenv.config()
+
 
 const express = require('express')
 const path = require('path')
 
+const dotenv = require('dotenv')
+dotenv.config()
+
 const miApp = express()
+
+global._basedir = __dirname
 
 //miApp.use(express.static(path.join(__dirname, 'public')))
 miApp.use(express.static('public'))
@@ -30,7 +34,8 @@ server.on('error', error => console.log(`Error en servidor ${error}`))
 
 miApp.get('/', (req, resp) => {
     //resp.json({mensaje: 'Hola mundo'})
-    resp.sendFile(path.join(__dirname, 'public', 'index.html'))
+    //resp.sendFile(path.join(__dirname, 'public', 'index.html'))
+    resp.sendFile(path.join(global._basedir, 'index.html'))
 })
 
 
