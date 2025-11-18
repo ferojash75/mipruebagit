@@ -24,6 +24,9 @@ global._basedir = __dirname
 //miApp.use(express.static(path.join(__dirname, 'public')))
 miApp.use(express.static('public'))
 
+miApp.use(express.json())
+miApp.use(cors())
+
 //const puerto = 3500
 const puerto = process.env.PUERTO
 
